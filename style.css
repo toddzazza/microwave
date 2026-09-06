@@ -1452,6 +1452,7 @@ footer {
 --------------------------------- */
 
 .synth-card {
+  width: 100%;
   overflow: hidden;
 
   border: 1px solid #666;
@@ -1459,187 +1460,296 @@ footer {
   background:
     linear-gradient(
       to bottom,
-      #f3eedc 0%,
-      #e7dfc4 100%
+      #f4efdc 0%,
+      #e6ddbd 100%
     );
 
   box-shadow:
-    inset 0 0 0 2px #f8f4e6;
+    inset 0 0 0 2px #faf6e8;
 }
 
 
-/* HEADER */
+/* ---------------------------------
+   CARD HEADER
+--------------------------------- */
 
 .synth-card-header {
-  padding: 9px 11px 10px 11px;
+  padding: 8px 10px 9px 10px;
 
   color: #fff;
 
-  border-bottom: 1px solid #0b5b8d;
+  border-bottom: 1px solid #075783;
 
   background:
     linear-gradient(
       to bottom,
-      #79c5f1 0%,
-      #2c9ad4 42%,
-      #0875b2 54%,
-      #3198cf 100%
+      #8bd0f5 0%,
+      #3aa5dc 43%,
+      #0875b0 52%,
+      #2d96ce 100%
     );
 
-  text-shadow: 0 1px #164d70;
+  text-shadow:
+    0 1px 0 #185274;
 }
 
-.synth-card-kicker {
-  margin-bottom: 3px;
 
-  font-family: "Courier New", Courier, monospace;
+.synth-card-kicker {
+  margin: 0 0 3px 0;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
   font-size: 8px;
   font-weight: bold;
 
-  letter-spacing: 1.2px;
+  line-height: 1;
+
+  letter-spacing: 1px;
 }
 
-.synth-card-type {
-  font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 16px;
-  line-height: 1.1;
+.synth-card-type {
+  margin: 0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 15px;
   font-weight: bold;
+
+  line-height: 1.1;
 
   text-transform: uppercase;
 }
 
 
-/* SPEC TABLE */
+/* ---------------------------------
+   TECHNICAL SPECS
+--------------------------------- */
 
 .synth-card-specs {
-  width: calc(100% - 18px);
+  width: calc(100% - 16px);
 
-  margin: 9px;
+  margin: 8px;
 
   border-collapse: collapse;
 
-  font-size: 11px;
+  table-layout: fixed;
 
-  background: rgba(255, 255, 255, 0.28);
+  font-size: 10px;
 
-  border: 1px solid #aaa17f;
+  border: 1px solid #a99f7b;
+
+  background:
+    rgba(255, 255, 255, 0.30);
 }
+
 
 .synth-card-specs td {
-  padding: 6px 7px;
+  padding: 6px;
 
-  border-bottom: 1px solid #bcb291;
+  vertical-align: middle;
+
+  border-bottom:
+    1px solid #b9ae88;
 }
+
 
 .synth-card-specs tr:last-child td {
   border-bottom: 0;
 }
 
-.synth-card-specs td:first-child {
-  width: 42%;
 
-  font-family: "Courier New", Courier, monospace;
-  font-size: 9px;
+.synth-card-specs td:first-child {
+  width: 39%;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 8px;
   font-weight: bold;
+
+  letter-spacing: 0.3px;
 
   text-transform: uppercase;
 
-  background: rgba(255, 255, 255, 0.30);
+  background:
+    rgba(255, 255, 255, 0.30);
+
+  border-right:
+    1px solid #b9ae88;
 }
+
 
 .synth-card-specs td:last-child {
+  width: 61%;
+
   text-align: right;
+
   font-weight: bold;
+
+  line-height: 1.2;
 }
 
 
-/* CARD SECTIONS */
+/* ---------------------------------
+   CARD CONTENT BLOCKS
+--------------------------------- */
 
 .synth-card-section {
-  margin: 0 9px 9px 9px;
-  padding: 8px;
+  margin: 0 8px 8px 8px;
 
-  border: 1px solid #aaa17f;
+  padding: 7px;
 
-  background: rgba(255, 255, 255, 0.24);
+  border:
+    1px solid #a99f7b;
 
-  font-size: 11px;
+  background:
+    rgba(255, 255, 255, 0.27);
 }
 
+
 .synth-card-label {
-  margin: -8px -8px 7px -8px;
-  padding: 4px 6px;
+  margin:
+    -7px
+    -7px
+    7px
+    -7px;
+
+  padding:
+    4px
+    6px;
 
   color: #333;
 
-  font-family: "Courier New", Courier, monospace;
-  font-size: 9px;
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 8px;
   font-weight: bold;
+
+  line-height: 1;
 
   letter-spacing: 0.7px;
 
-  border-bottom: 1px solid #aaa17f;
+  border-bottom:
+    1px solid #a99f7b;
 
   background:
     linear-gradient(
       to bottom,
-      #faf8ee,
-      #d8d0b5
+      #fffdf5 0%,
+      #ded5b8 100%
     );
 }
 
 
-/* STRONG SIDES */
+/* ---------------------------------
+   STRONG SIDES
+--------------------------------- */
 
 #synth-strengths {
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 4px;
 }
 
-.synth-strength {
-  padding: 3px 5px;
 
-  font-family: "Courier New", Courier, monospace;
-  font-size: 9px;
+.synth-strength {
+  display: inline-block;
+
+  padding:
+    3px
+    5px;
+
+  color: #222;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 8px;
   font-weight: bold;
+
+  line-height: 1.2;
 
   text-transform: uppercase;
 
-  border: 1px solid #8f876d;
+  border:
+    1px solid #8e8567;
 
-  background: #f8f3df;
+  background:
+    linear-gradient(
+      to bottom,
+      #fffdf4,
+      #e7dfc5
+    );
 }
 
 
-/* SOUND REFERENCE */
+/* ---------------------------------
+   SOUND REFERENCE
+--------------------------------- */
 
 #synth-reference {
-  font-size: 12px;
+  color: #111;
+
+  font-size: 11px;
   font-weight: bold;
 
   line-height: 1.3;
 }
 
+
 .synth-reference-part {
   display: inline-block;
 
   margin-top: 5px;
-  padding: 3px 5px;
+
+  padding:
+    3px
+    5px;
 
   color: #fff;
 
-  font-family: "Courier New", Courier, monospace;
-  font-size: 9px;
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 8px;
   font-weight: bold;
+
+  line-height: 1;
+
+  letter-spacing: 0.2px;
 
   text-transform: uppercase;
 
-  background: #167caf;
+  border:
+    1px solid #07567e;
 
-  border: 1px solid #07567e;
+  background:
+    linear-gradient(
+      to bottom,
+      #45aadd,
+      #147bae
+    );
+
+  text-shadow:
+    0 1px 0 #07567e;
 }
 
 
@@ -1648,46 +1758,68 @@ footer {
 --------------------------------- */
 
 .rental-action {
-  margin-top: 10px;
+  margin-top: 9px;
 
-  padding: 8px;
+  padding: 7px;
 
-  border: 1px solid #aaa;
+  border:
+    1px solid #999;
 
   background:
     linear-gradient(
       to bottom,
-      #f8f8f8,
-      #e5e5e5
+      #fafafa 0%,
+      #e5e5e5 100%
     );
 }
 
+
+/* AVAILABLE STATUS */
+
 .rental-status {
   display: flex;
+
   align-items: center;
 
-  margin-bottom: 7px;
+  margin:
+    0
+    0
+    7px
+    0;
 
-  font-family: "Courier New", Courier, monospace;
-  font-size: 10px;
+  color: #222;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 9px;
   font-weight: bold;
+
+  line-height: 1;
 
   text-transform: uppercase;
 }
+
 
 .rental-status::before {
   content: "";
 
   display: inline-block;
 
+  flex: 0 0 auto;
+
   width: 8px;
   height: 8px;
 
   margin-right: 6px;
 
-  background: #00c900;
+  border:
+    1px solid #006800;
 
-  border: 1px solid #007500;
+  background:
+    #00c900;
 
   box-shadow:
     0 0 3px #00e800,
@@ -1695,7 +1827,9 @@ footer {
 }
 
 
-/* ADD TO CART */
+/* ---------------------------------
+   DETAIL PAGE ADD TO CART
+--------------------------------- */
 
 .equipment-add-button {
   display: block;
@@ -1703,52 +1837,184 @@ footer {
   width: 100%;
 
   margin: 0;
-  padding: 9px 10px;
+
+  padding:
+    9px
+    8px;
 
   color: #fff;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 10px;
   font-weight: bold;
+
+  line-height: 1;
 
   letter-spacing: 0.3px;
 
+  text-align: center;
+
   border:
-    1px solid #444;
+    1px solid #333;
 
   background:
     linear-gradient(
       to bottom,
-      #444 0%,
-      #222 48%,
-      #090909 52%,
-      #222 100%
+      #555 0%,
+      #333 45%,
+      #111 52%,
+      #292929 100%
     );
 
-  text-shadow: 0 1px #000;
+  text-shadow:
+    0 1px 0 #000;
 
   cursor: pointer;
 }
 
+
 .equipment-add-button:hover {
   color: #111;
+
+  border-color:
+    #4e7fa9;
 
   background:
     linear-gradient(
       to bottom,
       #ffffff 0%,
-      #dceeff 45%,
-      #82b9e9 55%,
-      #bad9f4 100%
+      #e7f3ff 35%,
+      #8abce8 55%,
+      #bddaf2 100%
     );
 
   text-shadow: none;
 }
 
+
+/* ALREADY ADDED */
+
 .equipment-add-button.added {
   color: #555;
 
-  background: #d5d5d5;
+  border-color:
+    #999;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #eeeeee,
+      #cccccc
+    );
 
   text-shadow: none;
+}
+
+
+/* DISABLED / COMING SOON */
+
+.equipment-add-button:disabled {
+  color: #777;
+
+  border-color:
+    #aaa;
+
+  background:
+    #ddd;
+
+  text-shadow: none;
+
+  opacity: 0.75;
+}
+
+
+/* ---------------------------------
+   SYNTH DETAIL — TABLET
+--------------------------------- */
+
+@media (max-width: 830px) {
+
+  .synth-card {
+    max-width: 100%;
+  }
+
+  .synth-card-type {
+    font-size: 16px;
+  }
+
+}
+
+
+/* ---------------------------------
+   SYNTH DETAIL — MOBILE
+--------------------------------- */
+
+@media (max-width: 520px) {
+
+  .equipment-info {
+    width: 100%;
+  }
+
+
+  .synth-card {
+    width: 100%;
+  }
+
+
+  .synth-card-header {
+    padding:
+      9px
+      10px;
+  }
+
+
+  .synth-card-type {
+    font-size: 15px;
+  }
+
+
+  .synth-card-specs {
+    font-size: 10px;
+  }
+
+
+  .synth-card-specs td {
+    padding:
+      6px
+      5px;
+  }
+
+
+  .synth-card-section {
+    padding: 7px;
+  }
+
+
+  .synth-strength {
+    font-size: 8px;
+  }
+
+
+  #synth-reference {
+    font-size: 11px;
+  }
+
+
+  .rental-action {
+    margin-top: 8px;
+  }
+
+
+  .equipment-add-button {
+    padding:
+      10px
+      8px;
+
+    font-size: 11px;
+  }
+
 }

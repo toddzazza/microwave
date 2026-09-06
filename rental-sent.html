@@ -79,11 +79,15 @@
   <div class="fire-bottom"></div>
 
 
-  <script>
-    localStorage.removeItem("microwaveRentalCart");
-  </script>
-
   <script src="rental-cart.js"></script>
+
+<script>
+  localStorage.setItem("microwaveRentalCart", "[]");
+
+  document.querySelectorAll(".rental-cart-count").forEach(function(counter) {
+    counter.textContent = "0";
+  });
+</script>
 
 </body>
 

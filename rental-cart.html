@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Your Rental — Microwave</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="site">
+
+    <header>
+
+      <div id="branding">
+        <h1>Microwave</h1>
+
+        <div class="tagline">
+          SYNTHESIZER RENTAL / SALES / COPENHAGEN
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="rent.html">Rent</a>
+        <a href="sale.html">For Sale</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+        <a href="rental-cart.html" class="cart-nav active">
+          CART [<span class="rental-cart-count">0</span>]
+        </a>
+      </nav>
+
+    </header>
+
+
+    <main>
+
+      <div class="section-title">
+        Your Rental
+      </div>
+
+      <div class="intro">
+        Equipment currently selected for your rental request.
+      </div>
+
+
+      <div class="bar">
+        Selected Equipment
+      </div>
+
+      <div id="rental-cart-items">
+        <!-- Selected equipment appears here -->
+      </div>
+
+
+      <p>
+        <a href="rent.html">← Continue browsing equipment</a>
+      </p>
+
+
+      <div class="bar rental-category">
+        Rental Request
+      </div>
+
+      <p class="rental-note">
+        Send a request with your preferred dates. We will confirm availability and price by email.
+      </p>
+
+
+      <form
+        action="https://formspree.io/f/mzebawbb"
+        method="post"
+        class="rental-form"
+      >
+
+        <!-- Equipment from cart -->
+        <input
+          type="hidden"
+          id="cart-equipment"
+          name="equipment"
+        >
+
+
+        <label for="start">
+          Rental start
+        </label>
+
+        <input
+          type="date"
+          id="start"
+          name="start"
+          required
+        >
+
+
+        <label for="end">
+          Rental end
+        </label>
+
+        <input
+          type="date"
+          id="end"
+          name="end"
+          required
+        >
+
+
+        <label for="name">
+          Name
+        </label>
+
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+        >
+
+
+        <label for="email">
+          Email
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+        >
+
+
+        <label for="message">
+          Message
+        </label>
+
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+        ></textarea>
+
+
+        <button type="submit">
+          Send rental request
+        </button>
+
+      </form>
+
+    </main>
+
+
+    <footer>
+      MICROWAVE / COPENHAGEN / DENMARK
+      <br>
+      BLU VENUS / CVR 46189566
+      <br>
+      Last updated: September 2026
+    </footer>
+
+  </div>
+
+
+  <div class="fire-bottom"></div>
+
+
+<script src="rental-cart.js"></script>
+
+</body>
+
+</html>

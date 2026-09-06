@@ -73,24 +73,19 @@
       </p>
 
 
+      <div data-fs-error></div>
+
       <form
-        action="https://formspree.io/f/mzebawbb"
-        method="post"
+        id="rental-request-form"
         class="rental-form"
       >
-
-        <!-- Redirect after successful Formspree submission -->
-        <input
-          type="hidden"
-          name="_next"
-          value="https://microwave-2eh.pages.dev/rental-sent.html"
-        >
 
         <!-- Equipment from cart -->
         <input
           type="hidden"
           id="cart-equipment"
           name="equipment"
+          data-fs-field
         >
 
 
@@ -103,6 +98,7 @@
           id="start"
           name="start"
           required
+          data-fs-field
         >
 
 
@@ -115,6 +111,7 @@
           id="end"
           name="end"
           required
+          data-fs-field
         >
 
 
@@ -127,6 +124,7 @@
           id="name"
           name="name"
           required
+          data-fs-field
         >
 
 
@@ -139,6 +137,7 @@
           id="email"
           name="email"
           required
+          data-fs-field
         >
 
 
@@ -150,10 +149,14 @@
           id="message"
           name="message"
           rows="5"
+          data-fs-field
         ></textarea>
 
 
-        <button type="submit">
+        <button
+          type="submit"
+          data-fs-submit-btn
+        >
           Send rental request
         </button>
 
@@ -175,7 +178,29 @@
 
   <div class="fire-bottom"></div>
 
+
   <script src="rental-cart.js"></script>
+
+
+  <script>
+    window.formspree =
+      window.formspree ||
+      function () {
+        (formspree.q = formspree.q || []).push(arguments);
+      };
+
+    formspree("initForm", {
+      formElement: "#rental-request-form",
+      formId: "mzebawbb",
+
+      onSuccess: function () {
+        localStorage.setItem("microwaveRentalCart", "[]");
+        window.location.href = "rental-sent.html";
+      }
+    });
+  </script>
+
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 

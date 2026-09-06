@@ -102,11 +102,15 @@
 
           <div class="equipment-contact">
 
-            <a href="contact.html" id="rental-link">
-              → Request rental
-            </a>
+  <button
+    type="button"
+    id="synth-add-button"
+    class="add-rental-button"
+  >
+    ADD TO CART
+  </button>
 
-          </div>
+</div>
 
         </div>
 
@@ -127,10 +131,12 @@
 
 
     <footer>
-      MICROWAVE / COPENHAGEN / DENMARK
-      <br>
-      Last updated: August 2026
-    </footer>
+  MICROWAVE / COPENHAGEN / DENMARK
+  <br>
+  BLU VENUS / CVR 46189566
+  <br>
+  Last updated: September 2026
+</footer>
 
   </div>
 
@@ -281,6 +287,11 @@
 
       document.getElementById("synth-description").textContent =
         synth.description;
+      const addButton =
+  document.getElementById("synth-add-button");
+
+addButton.dataset.id = synthID;
+addButton.dataset.name = synth.name;
 
     }
 
@@ -297,6 +308,8 @@
 
       document.getElementById("synth-description").textContent =
         "This synthesizer could not be found in the Microwave catalogue.";
+      document.getElementById("synth-add-button").style.display =
+  "none";
 
     }
 

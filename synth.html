@@ -25,9 +25,7 @@
   <div id="site">
 
 
-    <!-- ---------------------------------
-         HEADER
-    ---------------------------------- -->
+    <!-- HEADER -->
 
     <header>
 
@@ -80,9 +78,7 @@
 
 
 
-    <!-- ---------------------------------
-         MAIN
-    ---------------------------------- -->
+    <!-- MAIN -->
 
     <main>
 
@@ -103,9 +99,7 @@
 
 
 
-      <!-- ---------------------------------
-           PRODUCT
-      ---------------------------------- -->
+      <!-- PRODUCT -->
 
       <div class="equipment-page">
 
@@ -124,10 +118,12 @@
 
 
 
-        <!-- TRUMP CARD / RENTAL INFO -->
+        <!-- CARD + RENTAL -->
 
         <div class="equipment-info">
 
+
+          <!-- TRUMP CARD -->
 
           <div class="synth-card">
 
@@ -135,8 +131,6 @@
             <!-- CARD HEADER -->
 
             <div class="synth-card-header">
-
-              
 
               <div
                 class="synth-card-type"
@@ -152,41 +146,18 @@
             <table class="synth-card-specs">
 
               <tr>
-
-                <td>
-                  Polyphony
-                </td>
-
-                <td id="synth-polyphony">
-                  —
-                </td>
-
+                <td>Polyphony</td>
+                <td id="synth-polyphony">—</td>
               </tr>
 
-
               <tr>
-
-                <td>
-                  Synthesis
-                </td>
-
-                <td id="synth-synthesis">
-                  —
-                </td>
-
+                <td>Synthesis</td>
+                <td id="synth-synthesis">—</td>
               </tr>
 
-
               <tr>
-
-                <td>
-                  Oscillators
-                </td>
-
-                <td id="synth-oscillators">
-                  —
-                </td>
-
+                <td>Oscillators</td>
+                <td id="synth-oscillators">—</td>
               </tr>
 
             </table>
@@ -256,9 +227,7 @@
 
 
 
-      <!-- ---------------------------------
-           ABOUT
-      ---------------------------------- -->
+      <!-- ABOUT -->
 
       <div class="bar equipment-description-bar">
         About
@@ -276,9 +245,7 @@
 
 
 
-    <!-- ---------------------------------
-         FOOTER
-    ---------------------------------- -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -298,14 +265,11 @@
   </div>
 
 
-
   <div class="fire-bottom"></div>
 
 
 
-  <!-- ---------------------------------
-       SYNTH DATA
-  ---------------------------------- -->
+  <!-- SYNTH DATA -->
 
   <script>
 
@@ -318,19 +282,48 @@
 
       monopoly: {
 
-        name: "Behringer MonoPoly",
+        name:
+          "Behringer MonoPoly",
 
-        type: "Analog synthesizer",
+        type:
+          "Analog synthesizer",
 
-        status: "Available",
+        status:
+          "Available",
 
-        polyphony: "4-voice paraphonic / mono",
+        polyphony:
+          "4-voice paraphonic / mono",
 
-        synthesis: "Analog subtractive",
+        synthesis:
+          "Analog subtractive",
 
-        oscillators: "4 VCO",
+        oscillators:
+          "4 VCO",
 
-        monopoly: {
+        strengths: [
+
+          {
+            name: "Basslines",
+            score: 9
+          },
+
+          {
+            name: "Arpeggios",
+            score: 9
+          },
+
+          {
+            name: "Leads",
+            score: 8
+          },
+
+          {
+            name: "Pads",
+            score: 4
+          }
+
+        ],
+
         reference:
           "Robyn — Dancing On My Own",
 
@@ -600,7 +593,7 @@
 
 
     /* ---------------------------------
-       READ SYNTH ID FROM URL
+       READ SYNTH FROM URL
     ---------------------------------- */
 
     const params =
@@ -625,7 +618,7 @@
     if (synth) {
 
 
-      /* PAGE */
+      /* PAGE TITLE */
 
       document.title =
         synth.name + " — Microwave";
@@ -662,7 +655,7 @@
 
 
 
-      /* SPECS */
+      /* TECHNICAL SPECS */
 
       document
         .getElementById("synth-polyphony")
@@ -683,7 +676,9 @@
 
 
 
-      /* STRONG SIDES */
+      /* ---------------------------------
+         STRONG SIDES
+      ---------------------------------- */
 
       const strengthsContainer =
         document.getElementById(
@@ -695,90 +690,129 @@
 
 
       if (
-  synth.strengths &&
-  synth.strengths.length > 0
-) {
+        synth.strengths &&
+        synth.strengths.length > 0
+      ) {
 
-  synth.strengths.forEach(
-    function (strength) {
-
-      const row =
-        document.createElement("div");
-
-      row.className =
-        "synth-strength";
+        synth.strengths.forEach(
+          function (strength) {
 
 
-      const name =
-        document.createElement("span");
+            /* ROW */
 
-      name.className =
-        "synth-strength-name";
+            const row =
+              document.createElement("div");
 
-      name.textContent =
-        strength.name;
-
-
-      const meter =
-        document.createElement("span");
-
-      meter.className =
-        "synth-strength-meter";
+            row.className =
+              "synth-strength";
 
 
-      for (let i = 1; i <= 10; i++) {
+            /* NAME */
 
-        const block =
-          document.createElement("span");
+            const name =
+              document.createElement("span");
 
-        block.className =
-          "synth-strength-block";
+            name.className =
+              "synth-strength-name";
 
-        if (i <= strength.score) {
-          block.classList.add("filled");
-        }
+            name.textContent =
+              strength.name;
 
-        meter.appendChild(block);
+
+            /* METER */
+
+            const meter =
+              document.createElement("span");
+
+            meter.className =
+              "synth-strength-meter";
+
+
+            for (
+              let i = 1;
+              i <= 10;
+              i++
+            ) {
+
+              const block =
+                document.createElement("span");
+
+              block.className =
+                "synth-strength-block";
+
+
+              if (
+                i <= strength.score
+              ) {
+
+                block.classList.add(
+                  "filled"
+                );
+
+              }
+
+
+              meter.appendChild(
+                block
+              );
+
+            }
+
+
+            /* SCORE */
+
+            const score =
+              document.createElement("span");
+
+            score.className =
+              "synth-strength-score";
+
+            score.textContent =
+              strength.score;
+
+
+            /* BUILD ROW */
+
+            row.appendChild(
+              name
+            );
+
+            row.appendChild(
+              meter
+            );
+
+            row.appendChild(
+              score
+            );
+
+
+            strengthsContainer
+              .appendChild(
+                row
+              );
+
+          }
+        );
+
+      }
+
+      else {
+
+        strengthsContainer.textContent =
+          "—";
 
       }
 
 
-      const score =
-        document.createElement("span");
 
-      score.className =
-        "synth-strength-score";
-
-      score.textContent =
-        strength.score;
-
-
-      row.appendChild(name);
-
-      row.appendChild(meter);
-
-      row.appendChild(score);
-
-      strengthsContainer.appendChild(row);
-
-    }
-  );
-
-}
-
-else {
-
-  strengthsContainer.textContent =
-    "—";
-
-}
-
-
-
-      /* SOUND REFERENCE */
+      /* ---------------------------------
+         SOUND REFERENCE
+      ---------------------------------- */
 
       document
-        .getElementById("synth-reference")
+        .getElementById(
+          "synth-reference"
+        )
         .textContent =
         synth.reference || "—";
 
@@ -792,7 +826,7 @@ else {
 
 
 
-      /* DESCRIPTION */
+      /* ABOUT */
 
       document
         .getElementById(
@@ -803,7 +837,9 @@ else {
 
 
 
-      /* RENTAL STATUS */
+      /* ---------------------------------
+         RENTAL STATUS
+      ---------------------------------- */
 
       const statusElement =
         document.getElementById(
@@ -818,7 +854,9 @@ else {
 
 
 
-      /* ADD TO CART */
+      /* ---------------------------------
+         ADD TO CART
+      ---------------------------------- */
 
       const addButton =
         document.getElementById(
@@ -835,13 +873,14 @@ else {
 
 
 
-      /* DISABLE IF NOT AVAILABLE */
+      /* COMING SOON */
 
       if (
         synth.status !== "Available"
       ) {
 
-        addButton.disabled = true;
+        addButton.disabled =
+          true;
 
         addButton.textContent =
           "NOT YET AVAILABLE";
@@ -860,25 +899,33 @@ else {
 
 
       document
-        .getElementById("synth-title")
+        .getElementById(
+          "synth-title"
+        )
         .textContent =
         "Synthesizer not found";
 
 
       document
-        .getElementById("synth-image")
+        .getElementById(
+          "synth-image"
+        )
         .style.display =
         "none";
 
 
       document
-        .querySelector(".synth-card")
+        .querySelector(
+          ".synth-card"
+        )
         .style.display =
         "none";
 
 
       document
-        .querySelector(".rental-action")
+        .querySelector(
+          ".rental-action"
+        )
         .style.display =
         "none";
 

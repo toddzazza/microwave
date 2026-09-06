@@ -136,9 +136,7 @@
 
             <div class="synth-card-header">
 
-              <div class="synth-card-kicker">
-                INSTRUMENT PROFILE
-              </div>
+              
 
               <div
                 class="synth-card-type"
@@ -332,13 +330,7 @@
 
         oscillators: "4 VCO",
 
-        strengths: [
-          "Fat basslines",
-          "Stacked unison",
-          "Arpeggios",
-          "Raw analog leads"
-        ],
-
+        monopoly: {
         reference:
           "Robyn — Dancing On My Own",
 
@@ -703,36 +695,83 @@
 
 
       if (
-        synth.strengths &&
-        synth.strengths.length > 0
-      ) {
+  synth.strengths &&
+  synth.strengths.length > 0
+) {
 
-        synth.strengths.forEach(
-          function (strength) {
+  synth.strengths.forEach(
+    function (strength) {
 
-            const item =
-              document.createElement("div");
+      const row =
+        document.createElement("div");
 
-            item.className =
-              "synth-strength";
+      row.className =
+        "synth-strength";
 
-            item.textContent =
-              strength;
 
-            strengthsContainer
-              .appendChild(item);
+      const name =
+        document.createElement("span");
 
-          }
-        );
+      name.className =
+        "synth-strength-name";
+
+      name.textContent =
+        strength.name;
+
+
+      const meter =
+        document.createElement("span");
+
+      meter.className =
+        "synth-strength-meter";
+
+
+      for (let i = 1; i <= 10; i++) {
+
+        const block =
+          document.createElement("span");
+
+        block.className =
+          "synth-strength-block";
+
+        if (i <= strength.score) {
+          block.classList.add("filled");
+        }
+
+        meter.appendChild(block);
 
       }
 
-      else {
 
-        strengthsContainer.textContent =
-          "—";
+      const score =
+        document.createElement("span");
 
-      }
+      score.className =
+        "synth-strength-score";
+
+      score.textContent =
+        strength.score;
+
+
+      row.appendChild(name);
+
+      row.appendChild(meter);
+
+      row.appendChild(score);
+
+      strengthsContainer.appendChild(row);
+
+    }
+  );
+
+}
+
+else {
+
+  strengthsContainer.textContent =
+    "—";
+
+}
 
 
 

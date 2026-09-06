@@ -1448,117 +1448,307 @@ footer {
   font-weight: bold;
 }
 /* ---------------------------------
-   SYNTH TRADING CARD
+   SYNTH TRUMP CARD
 --------------------------------- */
 
 .synth-card {
-  border: 1px solid #777;
-  background: #eee8d2;
+  overflow: hidden;
+
+  border: 1px solid #666;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #f3eedc 0%,
+      #e7dfc4 100%
+    );
+
+  box-shadow:
+    inset 0 0 0 2px #f8f4e6;
 }
+
+
+/* HEADER */
 
 .synth-card-header {
-  padding: 10px 12px;
-  background: linear-gradient(to bottom, #45a9df, #168bc7);
+  padding: 9px 11px 10px 11px;
+
   color: #fff;
+
+  border-bottom: 1px solid #0b5b8d;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #79c5f1 0%,
+      #2c9ad4 42%,
+      #0875b2 54%,
+      #3198cf 100%
+    );
+
+  text-shadow: 0 1px #164d70;
 }
 
-.synth-card-maker {
-  font-family: "Courier New", monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+.synth-card-kicker {
+  margin-bottom: 3px;
 
-.synth-card-name {
-  margin-top: 1px;
-  font-size: 22px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 8px;
   font-weight: bold;
+
+  letter-spacing: 1.2px;
 }
 
 .synth-card-type {
-  margin-top: 3px;
-  font-family: "Courier New", monospace;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: bold;
+
   text-transform: uppercase;
 }
 
+
+/* SPEC TABLE */
+
 .synth-card-specs {
-  width: calc(100% - 24px);
-  margin: 10px 12px;
+  width: calc(100% - 18px);
+
+  margin: 9px;
+
   border-collapse: collapse;
-  font-size: 12px;
+
+  font-size: 11px;
+
+  background: rgba(255, 255, 255, 0.28);
+
+  border: 1px solid #aaa17f;
 }
 
 .synth-card-specs td {
-  padding: 5px 2px;
-  border-bottom: 1px solid #b8ae8d;
+  padding: 6px 7px;
+
+  border-bottom: 1px solid #bcb291;
+}
+
+.synth-card-specs tr:last-child td {
+  border-bottom: 0;
 }
 
 .synth-card-specs td:first-child {
+  width: 42%;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 9px;
   font-weight: bold;
+
   text-transform: uppercase;
+
+  background: rgba(255, 255, 255, 0.30);
 }
 
 .synth-card-specs td:last-child {
   text-align: right;
+  font-weight: bold;
 }
 
+
+/* CARD SECTIONS */
+
 .synth-card-section {
-  margin: 0 12px;
-  padding: 9px 0;
-  border-top: 1px solid #999071;
-  font-size: 12px;
+  margin: 0 9px 9px 9px;
+  padding: 8px;
+
+  border: 1px solid #aaa17f;
+
+  background: rgba(255, 255, 255, 0.24);
+
+  font-size: 11px;
 }
 
 .synth-card-label {
-  margin-bottom: 6px;
-  font-family: "Courier New", monospace;
-  font-size: 10px;
+  margin: -8px -8px 7px -8px;
+  padding: 4px 6px;
+
+  color: #333;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 9px;
   font-weight: bold;
-  letter-spacing: 1px;
+
+  letter-spacing: 0.7px;
+
+  border-bottom: 1px solid #aaa17f;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #faf8ee,
+      #d8d0b5
+    );
+}
+
+
+/* STRONG SIDES */
+
+#synth-strengths {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 4px;
 }
 
 .synth-strength {
-  line-height: 1.5;
+  padding: 3px 5px;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 9px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+
+  border: 1px solid #8f876d;
+
+  background: #f8f3df;
+}
+
+
+/* SOUND REFERENCE */
+
+#synth-reference {
+  font-size: 12px;
+  font-weight: bold;
+
+  line-height: 1.3;
 }
 
 .synth-reference-part {
-  margin-top: 3px;
-  font-family: "Courier New", monospace;
-  font-size: 10px;
+  display: inline-block;
+
+  margin-top: 5px;
+  padding: 3px 5px;
+
+  color: #fff;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 9px;
+  font-weight: bold;
+
   text-transform: uppercase;
+
+  background: #167caf;
+
+  border: 1px solid #07567e;
 }
 
 
-/* RENTAL ACTION */
+/* ---------------------------------
+   RENTAL ACTION
+--------------------------------- */
 
 .rental-action {
-  margin-top: 12px;
+  margin-top: 10px;
+
+  padding: 8px;
+
+  border: 1px solid #aaa;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #f8f8f8,
+      #e5e5e5
+    );
 }
 
 .rental-status {
-  margin-bottom: 6px;
-  font-family: "Courier New", monospace;
-  font-size: 11px;
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 7px;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
   font-weight: bold;
+
   text-transform: uppercase;
 }
 
-.equipment-add-button {
-  width: 100%;
-  padding: 11px 10px;
+.rental-status::before {
+  content: "";
 
-  background: #111;
+  display: inline-block;
+
+  width: 8px;
+  height: 8px;
+
+  margin-right: 6px;
+
+  background: #00c900;
+
+  border: 1px solid #007500;
+
+  box-shadow:
+    0 0 3px #00e800,
+    0 0 6px #00e800;
+}
+
+
+/* ADD TO CART */
+
+.equipment-add-button {
+  display: block;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 9px 10px;
+
   color: #fff;
 
-  border: 2px outset #888;
-
-  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
   font-weight: bold;
+
+  letter-spacing: 0.3px;
+
+  border:
+    1px solid #444;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #444 0%,
+      #222 48%,
+      #090909 52%,
+      #222 100%
+    );
+
+  text-shadow: 0 1px #000;
+
   cursor: pointer;
 }
 
 .equipment-add-button:hover {
-  background: #fff;
-  color: #000;
+  color: #111;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      #dceeff 45%,
+      #82b9e9 55%,
+      #bad9f4 100%
+    );
+
+  text-shadow: none;
+}
+
+.equipment-add-button.added {
+  color: #555;
+
+  background: #d5d5d5;
+
+  text-shadow: none;
 }

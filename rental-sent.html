@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rental Request Sent — Microwave</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="site">
+
+    <header>
+
+      <div id="branding">
+        <h1>Microwave</h1>
+
+        <div class="tagline">
+          SYNTHESIZER RENTAL / SALES / COPENHAGEN
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="rent.html">Rent</a>
+        <a href="sale.html">For Sale</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="rental-cart.html" class="cart-nav">
+          CART [<span class="rental-cart-count">0</span>]
+        </a>
+      </nav>
+
+    </header>
+
+
+    <main>
+
+      <div class="section-title">
+        Rental Request Sent
+      </div>
+
+      <div class="intro">
+        Your rental request has been received.
+      </div>
+
+
+      <div class="bar">
+        Request Received
+      </div>
+
+      <p>
+        We'll get back to you with availability and pricing.
+      </p>
+
+      <p>
+        <a href="index.html">← RETURN TO MICROWAVE</a>
+      </p>
+
+    </main>
+
+
+    <footer>
+      MICROWAVE / COPENHAGEN / DENMARK
+      <br>
+      BLU VENUS / CVR 46189566
+      <br>
+      Last updated: September 2026
+    </footer>
+
+  </div>
+
+  <div class="fire-bottom"></div>
+
+  <script>
+    localStorage.removeItem("rentalCart");
+  </script>
+
+  <script src="rental-cart.js"></script>
+
+</body>
+
+</html>

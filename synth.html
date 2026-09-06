@@ -63,74 +63,115 @@
         </div>
 
 
-        <div class="equipment-info">
+       <div class="equipment-info">
 
-          <h2 id="synth-name"></h2>
+  <div class="synth-card">
 
-          <p class="equipment-type" id="synth-type"></p>
+    <div class="synth-card-header">
 
+      <div
+        class="synth-card-maker"
+        id="synth-manufacturer"
+      ></div>
 
-          <div class="bar">
-            Rental Information
-          </div>
+      <div
+        class="synth-card-name"
+        id="synth-name"
+      ></div>
 
+      <div
+        class="synth-card-type"
+        id="synth-type"
+      ></div>
 
-          <table class="spec-table">
-
-            <tr>
-              <td>Status</td>
-              <td id="synth-status"></td>
-            </tr>
-
-            <tr>
-              <td>Manufacturer</td>
-              <td id="synth-manufacturer"></td>
-            </tr>
-
-            <tr>
-              <td>Type</td>
-              <td id="synth-type-table"></td>
-            </tr>
-
-            <tr>
-              <td>Location</td>
-              <td>Copenhagen</td>
-            </tr>
-
-          </table>
+    </div>
 
 
-          <div class="equipment-contact">
+    <table class="synth-card-specs">
 
-  <button
-    type="button"
-    id="synth-add-button"
-    class="add-rental-button"
-  >
-    ADD TO CART
-  </button>
+      <tr>
+        <td>Polyphony</td>
+        <td id="synth-polyphony">—</td>
+      </tr>
+
+      <tr>
+        <td>Synthesis</td>
+        <td id="synth-synthesis">—</td>
+      </tr>
+
+      <tr>
+        <td>Year</td>
+        <td id="synth-year">—</td>
+      </tr>
+
+    </table>
+
+
+    <div class="synth-card-section">
+
+      <div class="synth-card-label">
+        STRONG SIDES
+      </div>
+
+      <div id="synth-strengths"></div>
+
+    </div>
+
+
+    <div class="synth-card-section">
+
+      <div class="synth-card-label">
+        SOUND REFERENCE
+      </div>
+
+      <div id="synth-reference"></div>
+
+      <div
+        class="synth-reference-part"
+        id="synth-reference-part"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <div class="rental-action">
+
+    <div
+      class="rental-status"
+      id="synth-status"
+    ></div>
+
+    <button
+      type="button"
+      id="synth-add-button"
+      class="add-rental-button equipment-add-button"
+    >
+      ADD TO CART
+    </button>
+
+  </div>
 
 </div>
 
-        </div>
-
-      </div>
+</div>
 
 
-      <div class="bar equipment-description-bar">
-        About
-      </div>
+<div class="bar equipment-description-bar">
+  About
+</div>
 
-      <div class="equipment-description">
+<div class="equipment-description">
 
-        <p id="synth-description"></p>
+  <p id="synth-description"></p>
 
-      </div>
+</div>
 
-    </main>
+</main>
 
 
-    <footer>
+<footer>
   MICROWAVE / COPENHAGEN / DENMARK
   <br>
   BLU VENUS / CVR 46189566
@@ -138,184 +179,273 @@
   Last updated: September 2026
 </footer>
 
-  </div>
+</div>
 
 
-  <div class="fire-bottom"></div>
+<div class="fire-bottom"></div>
 
 
-  <script>
+<script>
 
-    const synths = {
+  const synths = {
 
-      monopoly: {
-        name: "Behringer MonoPoly",
-        manufacturer: "Behringer",
-        type: "Analog synthesizer",
-        status: "Available",
-        image: "images/synth/monopoly.jpg",
-        description: "Four-voice analog synthesizer with flexible mono, unison and polyphonic operation."
-      },
+    monopoly: {
+      name: "Behringer MonoPoly",
+      manufacturer: "Behringer",
+      type: "Analog synthesizer",
+      status: "Available",
 
-      pro800: {
-        name: "Behringer Pro-800",
-        manufacturer: "Behringer",
-        type: "Analog polyphonic synthesizer",
-        status: "Available",
-        image: "images/synth/pro800.jpg",
-        description: "Eight-voice analog polyphonic synthesizer with classic programmable architecture."
-      },
+      polyphony: "4-voice paraphonic / mono",
+      synthesis: "Analog subtractive",
+      year: "2021",
 
-      td3: {
-        name: "Behringer TD-3",
-        manufacturer: "Behringer",
-        type: "Analog bass synthesizer",
-        status: "Available",
-        image: "images/synth/td3.jpg",
-        description: "Analog bass-line synthesizer with built-in sequencer."
-      },
+      strengths: [
+        "Fat basslines",
+        "Stacked unison",
+        "Arpeggios",
+        "Raw analog leads"
+      ],
 
-      d550: {
-        name: "Roland D-550",
-        manufacturer: "Roland",
-        type: "Digital rack synthesizer",
-        status: "Available",
-        image: "images/synth/d550.jpg",
-        description: "Rackmount digital synthesizer using Roland's Linear Arithmetic synthesis architecture."
-      },
+      reference: "Robyn — Dancing On My Own",
+      referencePart: "Sequence / arpeggio",
 
-      jd08: {
-        name: "Roland JD-08",
-        manufacturer: "Roland",
-        type: "Digital synthesizer",
-        status: "Available",
-        image: "images/synth/jd08.jpg",
-        description: "Compact digital synthesizer inspired by the Roland JD series."
-      },
+      image: "images/synth/monopoly.jpg",
 
-      jp08: {
-        name: "Roland JP-08",
-        manufacturer: "Roland",
-        type: "Virtual analog synthesizer",
-        status: "Available",
-        image: "images/synth/jp08.jpg",
-        description: "Compact Roland Boutique synthesizer inspired by the Jupiter-8."
-      },
-
-      jp8080: {
-        name: "Roland JP-8080",
-        manufacturer: "Roland",
-        type: "Virtual analog synthesizer",
-        status: "Available",
-        image: "images/synth/jp8080.jpg",
-        description: "Rack and desktop virtual analog synthesizer from Roland's JP series."
-      },
-
-      ju06a: {
-        name: "Roland JU-06A",
-        manufacturer: "Roland",
-        type: "Virtual analog synthesizer",
-        status: "Available",
-        image: "images/synth/ju06a.jpg",
-        description: "Roland Boutique synthesizer combining characteristics of the classic Juno-60 and Juno-106."
-      },
-
-      jx03: {
-        name: "Roland JX-03",
-        manufacturer: "Roland",
-        type: "Virtual analog synthesizer",
-        status: "Available",
-        image: "images/synth/jx03.jpg",
-        description: "Roland Boutique synthesizer inspired by the JX-3P."
-      },
-
-      mks50: {
-        name: "Roland MKS-50",
-        manufacturer: "Roland",
-        type: "Analog rack synthesizer",
-        status: "Available",
-        image: "images/synth/mks50.jpg",
-        description: "Six-voice analog rackmount synthesizer from Roland."
-      },
-
-      sh01a: {
-        name: "Roland SH-01A",
-        manufacturer: "Roland",
-        type: "Virtual analog synthesizer",
-        status: "Available",
-        image: "images/synth/sh01a.jpg",
-        description: "Roland Boutique synthesizer inspired by the classic SH-101."
-      }
-
-    };
+      description: "Four-oscillator analog synthesizer with mono, unison and four-voice paraphonic operation. Features oscillator sync, cross-modulation, arpeggiator and chord memory, with a 24 dB/octave low-pass filter and dedicated modulation section."
+    },
 
 
-    const params = new URLSearchParams(window.location.search);
+    pro800: {
+      name: "Behringer Pro-800",
+      manufacturer: "Behringer",
+      type: "Analog polyphonic synthesizer",
+      status: "Available",
+      image: "images/synth/pro800.jpg",
+      description: "Eight-voice analog polyphonic synthesizer with classic programmable architecture."
+    },
 
-    const synthID = params.get("id");
 
-    const synth = synths[synthID];
+    td3: {
+      name: "Behringer TD-3",
+      manufacturer: "Behringer",
+      type: "Analog bass synthesizer",
+      status: "Available",
+      image: "images/synth/td3.jpg",
+      description: "Analog bass-line synthesizer with built-in sequencer."
+    },
 
 
-    if (synth) {
+    d550: {
+      name: "Roland D-550",
+      manufacturer: "Roland",
+      type: "Digital rack synthesizer",
+      status: "Available",
+      image: "images/synth/d550.jpg",
+      description: "Rackmount digital synthesizer using Roland's Linear Arithmetic synthesis architecture."
+    },
 
-      document.title = synth.name + " — Microwave";
 
-      document.getElementById("synth-title").textContent =
-        synth.name;
+    jd08: {
+      name: "Roland JD-08",
+      manufacturer: "Roland",
+      type: "Digital synthesizer",
+      status: "Available",
+      image: "images/synth/jd08.jpg",
+      description: "Compact digital synthesizer inspired by the Roland JD series."
+    },
 
-      document.getElementById("synth-name").textContent =
-        synth.name;
 
-      document.getElementById("synth-type").textContent =
-        synth.type;
+    jp08: {
+      name: "Roland JP-08",
+      manufacturer: "Roland",
+      type: "Virtual analog synthesizer",
+      status: "Available",
+      image: "images/synth/jp08.jpg",
+      description: "Compact Roland Boutique synthesizer inspired by the Jupiter-8."
+    },
 
-      document.getElementById("synth-image").src =
-        synth.image;
 
-      document.getElementById("synth-image").alt =
-        synth.name;
+    jp8080: {
+      name: "Roland JP-8080",
+      manufacturer: "Roland",
+      type: "Virtual analog synthesizer",
+      status: "Available",
+      image: "images/synth/jp8080.jpg",
+      description: "Rack and desktop virtual analog synthesizer from Roland's JP series."
+    },
 
-      document.getElementById("synth-status").textContent =
-        synth.status;
 
-      document.getElementById("synth-manufacturer").textContent =
-        synth.manufacturer;
+    ju06a: {
+      name: "Roland JU-06A",
+      manufacturer: "Roland",
+      type: "Virtual analog synthesizer",
+      status: "Available",
+      image: "images/synth/ju06a.jpg",
+      description: "Roland Boutique synthesizer combining characteristics of the classic Juno-60 and Juno-106."
+    },
 
-      document.getElementById("synth-type-table").textContent =
-        synth.type;
 
-      document.getElementById("synth-description").textContent =
-        synth.description;
-      const addButton =
-  document.getElementById("synth-add-button");
+    jx03: {
+      name: "Roland JX-03",
+      manufacturer: "Roland",
+      type: "Virtual analog synthesizer",
+      status: "Available",
+      image: "images/synth/jx03.jpg",
+      description: "Roland Boutique synthesizer inspired by the JX-3P."
+    },
 
-addButton.dataset.id = synthID;
-addButton.dataset.name = synth.name;
+
+    mks50: {
+      name: "Roland MKS-50",
+      manufacturer: "Roland",
+      type: "Analog rack synthesizer",
+      status: "Available",
+      image: "images/synth/mks50.jpg",
+      description: "Six-voice analog rackmount synthesizer from Roland."
+    },
+
+
+    sh01a: {
+      name: "Roland SH-01A",
+      manufacturer: "Roland",
+      type: "Virtual analog synthesizer",
+      status: "Available",
+      image: "images/synth/sh01a.jpg",
+      description: "Roland Boutique synthesizer inspired by the classic SH-101."
+    }
+
+  };
+
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const synthID =
+    params.get("id");
+
+  const synth =
+    synths[synthID];
+
+
+  if (synth) {
+
+    document.title =
+      synth.name + " — Microwave";
+
+    document.getElementById("synth-title").textContent =
+      synth.name;
+
+    document.getElementById("synth-name").textContent =
+      synth.name;
+
+    document.getElementById("synth-manufacturer").textContent =
+      synth.manufacturer;
+
+    document.getElementById("synth-type").textContent =
+      synth.type;
+
+    document.getElementById("synth-image").src =
+      synth.image;
+
+    document.getElementById("synth-image").alt =
+      synth.name;
+
+    document.getElementById("synth-status").textContent =
+      synth.status.toUpperCase() + " FOR RENT";
+
+    document.getElementById("synth-description").textContent =
+      synth.description;
+
+
+    document.getElementById("synth-polyphony").textContent =
+      synth.polyphony || "—";
+
+    document.getElementById("synth-synthesis").textContent =
+      synth.synthesis || "—";
+
+    document.getElementById("synth-year").textContent =
+      synth.year || "—";
+
+
+    const strengthsContainer =
+      document.getElementById("synth-strengths");
+
+    strengthsContainer.innerHTML = "";
+
+    if (synth.strengths) {
+
+      synth.strengths.forEach(function (strength) {
+
+        const item =
+          document.createElement("div");
+
+        item.className =
+          "synth-strength";
+
+        item.textContent =
+          "• " + strength;
+
+        strengthsContainer.appendChild(item);
+
+      });
+
+    } else {
+
+      strengthsContainer.textContent =
+        "—";
 
     }
 
-    else {
 
-      document.getElementById("synth-title").textContent =
-        "Synthesizer not found";
+    document.getElementById("synth-reference").textContent =
+      synth.reference || "—";
 
-      document.getElementById("synth-name").textContent =
-        "Equipment not found";
+    document.getElementById("synth-reference-part").textContent =
+      synth.referencePart || "";
 
-      document.getElementById("synth-image").style.display =
-        "none";
 
-      document.getElementById("synth-description").textContent =
-        "This synthesizer could not be found in the Microwave catalogue.";
-      document.getElementById("synth-add-button").style.display =
-  "none";
+    const addButton =
+      document.getElementById("synth-add-button");
 
-    }
+    addButton.dataset.id =
+      synthID;
 
-  </script>
+    addButton.dataset.name =
+      synth.name;
+
+  }
+
+
+  else {
+
+    document.getElementById("synth-title").textContent =
+      "Synthesizer not found";
+
+    document.getElementById("synth-name").textContent =
+      "Equipment not found";
+
+    document.getElementById("synth-image").style.display =
+      "none";
+
+    document.getElementById("synth-description").textContent =
+      "This synthesizer could not be found in the Microwave catalogue.";
+
+    document.getElementById("synth-add-button").style.display =
+      "none";
+
+    document.querySelector(".synth-card").style.display =
+      "none";
+
+    document.querySelector(".rental-action").style.display =
+      "none";
+
+  }
+
+</script>
+
 
 <script src="rental-cart.js"></script>
+
 </body>
 
 </html>

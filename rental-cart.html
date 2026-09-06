@@ -78,8 +78,14 @@
         method="post"
         class="rental-form"
       >
-<input type="hidden" name="_next" value="https://microwave-2eh.pages.dev/rental-sent.html">
-        
+
+        <!-- Redirect after successful Formspree submission -->
+        <input
+          type="hidden"
+          name="_next"
+          value="https://microwave-2eh.pages.dev/rental-sent.html"
+        >
+
         <!-- Equipment from cart -->
         <input
           type="hidden"
@@ -169,8 +175,7 @@
 
   <div class="fire-bottom"></div>
 
-
-<script src="rental-cart.js"></script>
+  <script src="rental-cart.js"></script>
 
 </body>
 

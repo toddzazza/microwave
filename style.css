@@ -1494,22 +1494,6 @@ footer {
 }
 
 
-.synth-card-kicker {
-  margin: 0 0 3px 0;
-
-  font-family:
-    "Courier New",
-    Courier,
-    monospace;
-
-  font-size: 8px;
-  font-weight: bold;
-
-  line-height: 1;
-
-  letter-spacing: 1px;
-}
-
 
 .synth-card-type {
   margin: 0;

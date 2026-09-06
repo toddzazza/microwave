@@ -1447,3 +1447,118 @@ footer {
   font-size: 13px;
   font-weight: bold;
 }
+/* ---------------------------------
+   SYNTH TRADING CARD
+--------------------------------- */
+
+.synth-card {
+  border: 1px solid #777;
+  background: #eee8d2;
+}
+
+.synth-card-header {
+  padding: 10px 12px;
+  background: linear-gradient(to bottom, #45a9df, #168bc7);
+  color: #fff;
+}
+
+.synth-card-maker {
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.synth-card-name {
+  margin-top: 1px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.synth-card-type {
+  margin-top: 3px;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.synth-card-specs {
+  width: calc(100% - 24px);
+  margin: 10px 12px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.synth-card-specs td {
+  padding: 5px 2px;
+  border-bottom: 1px solid #b8ae8d;
+}
+
+.synth-card-specs td:first-child {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.synth-card-specs td:last-child {
+  text-align: right;
+}
+
+.synth-card-section {
+  margin: 0 12px;
+  padding: 9px 0;
+  border-top: 1px solid #999071;
+  font-size: 12px;
+}
+
+.synth-card-label {
+  margin-bottom: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.synth-strength {
+  line-height: 1.5;
+}
+
+.synth-reference-part {
+  margin-top: 3px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+
+/* RENTAL ACTION */
+
+.rental-action {
+  margin-top: 12px;
+}
+
+.rental-status {
+  margin-bottom: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.equipment-add-button {
+  width: 100%;
+  padding: 11px 10px;
+
+  background: #111;
+  color: #fff;
+
+  border: 2px outset #888;
+
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.equipment-add-button:hover {
+  background: #fff;
+  color: #000;
+}

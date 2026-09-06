@@ -69,17 +69,16 @@
 
     <div class="synth-card-header">
 
-      <div
-        class="synth-card-maker"
-        id="synth-manufacturer"
-      ></div>
+  <div class="synth-card-kicker">
+    INSTRUMENT PROFILE
+  </div>
 
-      <div
-        class="synth-card-name"
-        id="synth-name"
-      ></div>
+  <div
+    class="synth-card-type"
+    id="synth-type"
+  ></div>
 
-      <div
+</div>
         class="synth-card-type"
         id="synth-type"
       ></div>
@@ -335,12 +334,6 @@
     document.getElementById("synth-title").textContent =
       synth.name;
 
-    document.getElementById("synth-name").textContent =
-      synth.name;
-
-    document.getElementById("synth-manufacturer").textContent =
-      synth.manufacturer;
-
     document.getElementById("synth-type").textContent =
       synth.type;
 
@@ -420,9 +413,6 @@
 
     document.getElementById("synth-title").textContent =
       "Synthesizer not found";
-
-    document.getElementById("synth-name").textContent =
-      "Equipment not found";
 
     document.getElementById("synth-image").style.display =
       "none";

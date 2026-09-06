@@ -1654,27 +1654,39 @@ footer {
 
 
 /* ---------------------------------
-   STRONG SIDES
+   STRONG SIDES / TRUMP RATINGS
 --------------------------------- */
 
 #synth-strengths {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 4px;
+  display: block;
 }
 
 
 .synth-strength {
-  display: inline-block;
+  display: grid;
 
-  padding:
-    3px
-    5px;
+  grid-template-columns:
+    70px
+    1fr
+    14px;
 
-  color: #222;
+  gap: 6px;
 
+  align-items: center;
+
+  padding: 3px 0;
+
+  border-bottom:
+    1px dotted #b6ac89;
+}
+
+
+.synth-strength:last-child {
+  border-bottom: 0;
+}
+
+
+.synth-strength-name {
   font-family:
     "Courier New",
     Courier,
@@ -1683,20 +1695,60 @@ footer {
   font-size: 8px;
   font-weight: bold;
 
-  line-height: 1.2;
-
   text-transform: uppercase;
+}
+
+
+.synth-strength-meter {
+  display: grid;
+
+  grid-template-columns:
+    repeat(10, 1fr);
+
+  gap: 2px;
+
+  height: 7px;
+}
+
+
+.synth-strength-block {
+  display: block;
+
+  min-width: 0;
 
   border:
-    1px solid #8e8567;
+    1px solid #9c9274;
+
+  background:
+    #eee8d3;
+}
+
+
+.synth-strength-block.filled {
+  border-color:
+    #126c99;
 
   background:
     linear-gradient(
       to bottom,
-      #fffdf4,
-      #e7dfc5
+      #55b5e5,
+      #147ead
     );
 }
+
+
+.synth-strength-score {
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  text-align: right;
+}
+
 
 
 /* ---------------------------------

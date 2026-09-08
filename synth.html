@@ -1098,28 +1098,6 @@ const addButton =
         );
 
      
-/* ---------------------------------
-   RENTAL PERIOD SELECTION
----------------------------------- */
-
-const priceButtons =
-  document.querySelectorAll(
-    ".rental-price-option"
-  );
-
-priceButtons.forEach(function (button) {
-
-  button.addEventListener("click", function () {
-
-    priceButtons.forEach(function (otherButton) {
-      otherButton.classList.remove("selected");
-    });
-
-    button.classList.add("selected");
-
-  });
-
-});
       
 /* ---------------------------------
    RENTAL PERIOD

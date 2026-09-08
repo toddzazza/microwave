@@ -210,6 +210,37 @@
             ></div>
 
 
+            <!-- RENTAL PRICES -->
+
+            <div
+              class="rental-prices"
+              id="synth-prices"
+            >
+
+              <div class="rental-price-row">
+                <span>DAY</span>
+                <strong id="synth-price-day">—</strong>
+              </div>
+
+              <div class="rental-price-row">
+                <span>WEEKEND</span>
+                <strong id="synth-price-weekend">—</strong>
+              </div>
+
+              <div class="rental-price-row">
+                <span>WEEK</span>
+                <strong id="synth-price-week">—</strong>
+              </div>
+
+            </div>
+
+
+            <div
+              class="rental-includes"
+              id="synth-rental-includes"
+            ></div>
+
+
             <button
               type="button"
               id="synth-add-button"
@@ -291,6 +322,12 @@
         status:
           "Available",
 
+        prices: {
+          day: 250,
+          weekend: 450,
+          week: 700
+        },
+
         polyphony:
           "4-voice paraphonic / mono",
 
@@ -354,6 +391,12 @@
 
   status:
     "Available",
+
+        prices: {
+          day: 250,
+          weekend: 450,
+          week: 700
+        },
 
   polyphony:
     "8 voices",
@@ -419,6 +462,12 @@
   status:
     "Available",
 
+        prices: {
+          day: 150,
+          weekend: 250,
+          week: 400
+        },
+
   polyphony:
     "Monophonic",
 
@@ -483,6 +532,15 @@
         status:
           "Available",
 
+        prices: {
+          day: 450,
+          weekend: 750,
+          week: 1200
+        },
+
+        rentalIncludes:
+          "Includes Roland PG-1000 programmer",
+
         image:
           "images/synth/d550.jpg",
 
@@ -507,6 +565,12 @@
 
         status:
           "Available",
+
+        prices: {
+          day: 200,
+          weekend: 350,
+          week: 550
+        },
 
         image:
           "images/synth/jd08.jpg",
@@ -533,6 +597,12 @@
         status:
           "Available",
 
+        prices: {
+          day: 200,
+          weekend: 350,
+          week: 550
+        },
+
         image:
           "images/synth/jp08.jpg",
 
@@ -557,6 +627,12 @@
 
         status:
           "Available",
+
+        prices: {
+          day: 400,
+          weekend: 700,
+          week: 1100
+        },
 
         image:
           "images/synth/jp8080.jpg",
@@ -583,6 +659,12 @@
         status:
           "Available",
 
+        prices: {
+          day: 200,
+          weekend: 350,
+          week: 550
+        },
+
         image:
           "images/synth/ju06a.jpg",
 
@@ -607,6 +689,12 @@
 
         status:
           "Available",
+
+        prices: {
+          day: 200,
+          weekend: 350,
+          week: 550
+        },
 
         image:
           "images/synth/jx03.jpg",
@@ -633,6 +721,15 @@
         status:
           "Available",
 
+        prices: {
+          day: 450,
+          weekend: 750,
+          week: 1200
+        },
+
+        rentalIncludes:
+          "Includes Roland PG-300 programmer",
+
         image:
           "images/synth/mks50.jpg",
 
@@ -657,6 +754,12 @@
 
         status:
           "Available",
+
+        prices: {
+          day: 250,
+          weekend: 400,
+          week: 600
+        },
 
         image:
           "images/synth/sh01a.jpg",
@@ -929,6 +1032,55 @@
         synth.status === "Available"
           ? "AVAILABLE FOR RENT"
           : synth.status.toUpperCase();
+
+
+      /* ---------------------------------
+         RENTAL PRICES
+      ---------------------------------- */
+
+      function formatPrice(value) {
+        return value.toLocaleString("da-DK") + " DKK";
+      }
+
+
+      document
+        .getElementById("synth-price-day")
+        .textContent =
+        synth.prices
+          ? formatPrice(synth.prices.day)
+          : "—";
+
+
+      document
+        .getElementById("synth-price-weekend")
+        .textContent =
+        synth.prices
+          ? formatPrice(synth.prices.weekend)
+          : "—";
+
+
+      document
+        .getElementById("synth-price-week")
+        .textContent =
+        synth.prices
+          ? formatPrice(synth.prices.week)
+          : "—";
+
+
+      const rentalIncludesElement =
+        document.getElementById(
+          "synth-rental-includes"
+        );
+
+
+      rentalIncludesElement.textContent =
+        synth.rentalIncludes || "";
+
+
+      rentalIncludesElement.style.display =
+        synth.rentalIncludes
+          ? "block"
+          : "none";
 
 
 

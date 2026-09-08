@@ -1086,7 +1086,43 @@
           ? "block"
           : "none";
 
+/* ---------------------------------
+   RENTAL PERIOD
+---------------------------------- */
 
+const priceButtons =
+  document.querySelectorAll(
+    ".rental-price-option"
+  );
+
+let selectedPeriod = "";
+let selectedPrice = "";
+
+priceButtons.forEach(function (button) {
+
+  button.addEventListener("click", function () {
+
+    priceButtons.forEach(function (otherButton) {
+      otherButton.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+    selectedPeriod =
+      button.dataset.period;
+
+    selectedPrice =
+      button.dataset.price;
+
+    addButton.dataset.period =
+      selectedPeriod;
+
+    addButton.dataset.price =
+      selectedPrice;
+
+  });
+
+});
 
       /* ---------------------------------
          ADD TO CART

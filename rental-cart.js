@@ -27,35 +27,83 @@ document.addEventListener("DOMContentLoaded", function () {
   // ADD TO RENTAL BUTTONS
   // ---------------------------------
 
-  const buttons = document.querySelectorAll(".add-rental-button");
+  const buttons =
+    document.querySelectorAll(
+      ".add-rental-button"
+    );
 
   buttons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
+      /*
+        Individual synth pages require
+        a rental period to be selected.
+      */
+
+      if (
+        button.classList.contains(
+          "equipment-add-button"
+        ) &&
+        !button.dataset.period
+      ) {
+
+        button.textContent =
+          "SELECT RENTAL PERIOD";
+
+        return;
+      }
+
+
       const item = {
-        id: button.dataset.id,
-        name: button.dataset.name
+        id:
+          button.dataset.id,
+
+        name:
+          button.dataset.name,
+
+        period:
+          button.dataset.period || "",
+
+        price:
+          button.dataset.price || ""
       };
+
 
       let cart = getCart();
 
-      const alreadyAdded = cart.some(function (cartItem) {
-        return cartItem.id === item.id;
-      });
+
+      const alreadyAdded =
+        cart.some(function (cartItem) {
+
+          return (
+            cartItem.id === item.id
+          );
+
+        });
+
 
       if (!alreadyAdded) {
 
         cart.push(item);
+
         saveCart(cart);
+
         updateCartCount();
 
-        button.textContent = "ADDED";
-        button.classList.add("added");
+        button.textContent =
+          "ADDED";
 
-      } else {
+        button.classList.add(
+          "added"
+        );
 
-        button.textContent = "ALREADY ADDED";
+      }
+
+      else {
+
+        button.textContent =
+          "ALREADY ADDED";
 
       }
 
@@ -68,7 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // DISPLAY CART
   // ---------------------------------
 
-  const cartContainer = document.getElementById("rental-cart-items");
+  const cartContainer =
+    document.getElementById(
+      "rental-cart-items"
+    );
+
 
   function displayCart() {
 
@@ -76,18 +128,53 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const cart = getCart();
-    const equipmentField = document.getElementById("cart-equipment");
 
-if (equipmentField) {
-  equipmentField.value = cart
-    .map(function (item) {
-      return item.name;
-    })
-    .join(", ");
-}
+    const cart =
+      getCart();
+
+
+    const equipmentField =
+      document.getElementById(
+        "cart-equipment"
+      );
+
+
+    if (equipmentField) {
+
+      equipmentField.value =
+        cart
+          .map(function (item) {
+
+            let text =
+              item.name;
+
+            if (item.period) {
+
+              text +=
+                " — " +
+                item.period.toUpperCase();
+
+            }
+
+            if (item.price) {
+
+              text +=
+                " — " +
+                item.price +
+                " KR.";
+
+            }
+
+            return text;
+
+          })
+          .join(", ");
+
+    }
+
 
     cartContainer.innerHTML = "";
+
 
     if (cart.length === 0) {
 
@@ -95,57 +182,145 @@ if (equipmentField) {
         '<p class="empty-cart">No equipment selected.</p>';
 
       return;
+
     }
+
 
     cart.forEach(function (item) {
 
-      const row = document.createElement("div");
-      row.className = "rental-cart-row";
+      const row =
+        document.createElement(
+          "div"
+        );
 
-      const name = document.createElement("span");
-      name.className = "rental-cart-name";
-      name.textContent = item.name;
+      row.className =
+        "rental-cart-row";
 
-      const removeButton = document.createElement("button");
-      removeButton.type = "button";
-      removeButton.className = "rental-cart-remove";
-      removeButton.textContent = "REMOVE";
 
-      removeButton.addEventListener("click", function () {
+      const name =
+        document.createElement(
+          "span"
+        );
 
-        const newCart = getCart().filter(function (cartItem) {
-          return cartItem.id !== item.id;
-        });
+      name.className =
+        "rental-cart-name";
 
-        saveCart(newCart);
-        updateCartCount();
-        displayCart();
 
-      });
+      let itemText =
+        item.name;
+
+
+      if (item.period) {
+
+        itemText +=
+          " — " +
+          item.period.toUpperCase();
+
+      }
+
+
+      if (item.price) {
+
+        itemText +=
+          " — " +
+          item.price +
+          " KR.";
+
+      }
+
+
+      name.textContent =
+        itemText;
+
+
+      const removeButton =
+        document.createElement(
+          "button"
+        );
+
+      removeButton.type =
+        "button";
+
+      removeButton.className =
+        "rental-cart-remove";
+
+      removeButton.textContent =
+        "REMOVE";
+
+
+      removeButton.addEventListener(
+        "click",
+        function () {
+
+          const newCart =
+            getCart().filter(
+              function (cartItem) {
+
+                return (
+                  cartItem.id !==
+                  item.id
+                );
+
+              }
+            );
+
+
+          saveCart(newCart);
+
+          updateCartCount();
+
+          displayCart();
+
+        }
+      );
+
 
       row.appendChild(name);
-      row.appendChild(removeButton);
 
-      cartContainer.appendChild(row);
+      row.appendChild(
+        removeButton
+      );
+
+      cartContainer.appendChild(
+        row
+      );
 
     });
 
   }
 
+
   displayCart();
+
+
   // ---------------------------------
   // UPDATE CART COUNT
   // ---------------------------------
 
   function updateCartCount() {
-    const cart = getCart();
 
-    const counters = document.querySelectorAll(".rental-cart-count");
+    const cart =
+      getCart();
 
-    counters.forEach(function (counter) {
-      counter.textContent = cart.length;
-    });
+
+    const counters =
+      document.querySelectorAll(
+        ".rental-cart-count"
+      );
+
+
+    counters.forEach(
+      function (counter) {
+
+        counter.textContent =
+          cart.length;
+
+      }
+    );
+
   }
 
+
   updateCartCount();
+
 });

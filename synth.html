@@ -1085,7 +1085,12 @@
         synth.rentalIncludes
           ? "block"
           : "none";
-
+      
+const addButton =
+        document.getElementById(
+          "synth-add-button"
+        );
+      
 /* ---------------------------------
    RENTAL PERIOD
 ---------------------------------- */
@@ -1128,10 +1133,7 @@ priceButtons.forEach(function (button) {
          ADD TO CART
       ---------------------------------- */
 
-      const addButton =
-        document.getElementById(
-          "synth-add-button"
-        );
+      
 
 
       addButton.dataset.id =

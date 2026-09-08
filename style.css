@@ -2054,3 +2054,49 @@ footer {
   }
 
 }
+/* ---------------------------------
+   RENTAL PRICES
+--------------------------------- */
+
+.rental-prices {
+  width: 100%;
+  margin: 10px 0 12px;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+
+.rental-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px dotted #aaa;
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+  font-size: 10px;
+}
+
+.rental-price-row:last-child {
+  border-bottom: 0;
+}
+
+.rental-price-row span {
+  font-weight: bold;
+}
+
+.rental-price-row strong {
+  font-size: 11px;
+}
+
+.rental-includes {
+  margin: -2px 0 10px;
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+}

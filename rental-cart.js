@@ -55,19 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
 
-      const item = {
-        id:
-          button.dataset.id,
-
-        name:
-          button.dataset.name,
-
-        period:
-          button.dataset.period || "",
-
-        price:
-          button.dataset.price || ""
-      };
+ const item = {
+  id: button.dataset.id,
+  name: button.dataset.name,
+  period: button.dataset.period || "",
+  price: button.dataset.price || ""
+};
 
 
       let cart = getCart();

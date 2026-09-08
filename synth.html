@@ -1125,7 +1125,7 @@ priceButtons.forEach(function (button) {
       button.dataset.period;
 
     selectedPrice =
-      button.dataset.price;
+  synth.prices[button.dataset.period];
 
     addButton.dataset.period =
       selectedPeriod;

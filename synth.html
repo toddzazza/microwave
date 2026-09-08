@@ -202,54 +202,58 @@
 
           <!-- RENTAL ACTION -->
 
-          <div class="rental-action">
+<div class="rental-action">
 
-            <div
-              class="rental-status"
-              id="synth-status"
-            ></div>
+  <div
+    class="rental-status"
+    id="synth-status"
+  ></div>
 
+  <div class="rental-price-options">
 
-            <!-- RENTAL PRICES -->
+    <button
+      type="button"
+      class="rental-price-option"
+      data-period="day"
+    >
+      <span>DAY</span>
+      <strong id="synth-price-day">—</strong>
+    </button>
 
-            <div
-              class="rental-prices"
-              id="synth-prices"
-            >
+    <button
+      type="button"
+      class="rental-price-option"
+      data-period="weekend"
+    >
+      <span>WEEKEND</span>
+      <strong id="synth-price-weekend">—</strong>
+    </button>
 
-              <div class="rental-price-row">
-                <span>DAY</span>
-                <strong id="synth-price-day">—</strong>
-              </div>
+    <button
+      type="button"
+      class="rental-price-option"
+      data-period="week"
+    >
+      <span>WEEK</span>
+      <strong id="synth-price-week">—</strong>
+    </button>
 
-              <div class="rental-price-row">
-                <span>WEEKEND</span>
-                <strong id="synth-price-weekend">—</strong>
-              </div>
+  </div>
 
-              <div class="rental-price-row">
-                <span>WEEK</span>
-                <strong id="synth-price-week">—</strong>
-              </div>
+  <div
+    class="rental-includes"
+    id="synth-includes"
+  ></div>
 
-            </div>
+  <button
+    type="button"
+    id="synth-add-button"
+    class="add-rental-button equipment-add-button"
+  >
+    ADD TO CART
+  </button>
 
-
-            <div
-              class="rental-includes"
-              id="synth-rental-includes"
-            ></div>
-
-
-            <button
-              type="button"
-              id="synth-add-button"
-              class="add-rental-button equipment-add-button"
-            >
-              ADD TO CART
-            </button>
-
-          </div>
+</div>
 
 
         </div>

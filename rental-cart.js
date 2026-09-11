@@ -24,38 +24,85 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // ---------------------------------
-  // FORMAT CART ITEM
+  // FORMAT PRICE
   // ---------------------------------
 
-  function formatCartItem(item) {
+  function formatPrice(value) {
 
-  let text = item.name;
+    if (
+      value === undefined ||
+      value === null ||
+      value === ""
+    ) {
+      return "—";
+    }
 
-  const periodLabels = {
-    day: "1 DAY",
-    weekend: "3 DAYS",
-    week: "7 DAYS"
-  };
-
-  if (item.period) {
-    text +=
-      " — " +
-      (periodLabels[item.period] || item.period.toUpperCase());
+    return (
+      Number(value).toLocaleString("da-DK") +
+      " DKK"
+    );
   }
-
-  if (item.price) {
-    text +=
-      " — " +
-      Number(item.price).toLocaleString("da-DK") +
-      " DKK";
-  }
-
-  return text;
-}
 
 
   // ---------------------------------
-  // ADD TO RENTAL BUTTONS
+  // PERIOD LABEL
+  // ---------------------------------
+
+  function getPeriodLabel(period) {
+
+    const labels = {
+      day: "1 DAY",
+      weekend: "3 DAYS",
+      week: "7 DAYS"
+    };
+
+    return labels[period] || "";
+  }
+
+
+  // ---------------------------------
+  // PRICE FOR SELECTED PERIOD
+  // ---------------------------------
+
+  function getItemPrice(item, period) {
+
+    if (period === "day") {
+      return item.priceDay;
+    }
+
+    if (period === "weekend") {
+      return item.price3Days;
+    }
+
+    if (period === "week") {
+      return item.price7Days;
+    }
+
+    return "";
+  }
+
+
+  // ---------------------------------
+  // CURRENT CART PERIOD
+  // ---------------------------------
+
+  function getSelectedPeriod() {
+
+    const periodInput =
+      document.getElementById(
+        "rental-period"
+      );
+
+    if (!periodInput) {
+      return "";
+    }
+
+    return periodInput.value;
+  }
+
+
+  // ---------------------------------
+  // ADD TO CART BUTTONS
   // ---------------------------------
 
   const buttons =
@@ -66,79 +113,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
   buttons.forEach(function (button) {
 
-    button.addEventListener("click", function () {
+    button.addEventListener(
+      "click",
+      function () {
 
-      /*
-        Individual equipment pages require
-        a rental period to be selected.
-      */
+        const item = {
+          id:
+            button.dataset.id,
 
-      if (
-        button.classList.contains(
-          "equipment-add-button"
-        ) &&
-        !button.dataset.period
-      ) {
+          name:
+            button.dataset.name,
 
-        button.textContent =
-          "SELECT RENTAL PERIOD";
+          priceDay:
+            button.dataset.priceDay || "",
 
-        return;
-      }
+          price3Days:
+            button.dataset.price3Days || "",
 
-
-      const item = {
-        id: button.dataset.id,
-        name: button.dataset.name,
-        period: button.dataset.period || "",
-        price: button.dataset.price || ""
-      };
+          price7Days:
+            button.dataset.price7Days || ""
+        };
 
 
-      let cart = getCart();
+        let cart = getCart();
 
 
-      const alreadyAdded =
-        cart.some(function (cartItem) {
+        const alreadyAdded =
+          cart.some(function (cartItem) {
 
-          return (
-            cartItem.id === item.id
+            return (
+              cartItem.id === item.id
+            );
+
+          });
+
+
+        if (!alreadyAdded) {
+
+          cart.push(item);
+
+          saveCart(cart);
+
+          updateCartCount();
+
+          button.textContent =
+            "ADDED";
+
+          button.classList.add(
+            "added"
           );
 
-        });
+        }
 
+        else {
 
-      if (!alreadyAdded) {
+          button.textContent =
+            "ALREADY ADDED";
 
-        cart.push(item);
-
-        saveCart(cart);
-
-        updateCartCount();
-
-        button.textContent =
-          "ADDED";
-
-        button.classList.add(
-          "added"
-        );
+        }
 
       }
-
-      else {
-
-        button.textContent =
-          "ALREADY ADDED";
-
-      }
-
-    });
+    );
 
   });
 
 
   // ---------------------------------
-  // DISPLAY CART
+  // CART CONTAINER
   // ---------------------------------
 
   const cartContainer =
@@ -147,7 +188,69 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-  function displayCart() {
+  // ---------------------------------
+  // UPDATE FORM EQUIPMENT FIELD
+  // ---------------------------------
+
+  function updateEquipmentField(
+    cart,
+    period
+  ) {
+
+    const equipmentField =
+      document.getElementById(
+        "cart-equipment"
+      );
+
+
+    if (!equipmentField) {
+      return;
+    }
+
+
+    equipmentField.value =
+      cart
+        .map(function (item) {
+
+          let text =
+            item.name;
+
+          if (period) {
+
+            const price =
+              getItemPrice(
+                item,
+                period
+              );
+
+            text +=
+              " — " +
+              getPeriodLabel(period);
+
+            if (price !== "") {
+
+              text +=
+                " — " +
+                formatPrice(price);
+
+            }
+
+          }
+
+          return text;
+
+        })
+        .join(", ");
+  }
+
+
+  // ---------------------------------
+  // DISPLAY CART
+  // ---------------------------------
+
+  function displayCart(
+    forcedPeriod
+  ) {
 
     if (!cartContainer) {
       return;
@@ -158,31 +261,16 @@ document.addEventListener("DOMContentLoaded", function () {
       getCart();
 
 
-    // ---------------------------------
-    // FORM EQUIPMENT FIELD
-    // ---------------------------------
-
-    const equipmentField =
-      document.getElementById(
-        "cart-equipment"
-      );
+    const period =
+      forcedPeriod ||
+      getSelectedPeriod();
 
 
-    if (equipmentField) {
+    updateEquipmentField(
+      cart,
+      period
+    );
 
-      equipmentField.value =
-        cart
-          .map(function (item) {
-            return formatCartItem(item);
-          })
-          .join(", ");
-
-    }
-
-
-    // ---------------------------------
-    // CART DISPLAY
-    // ---------------------------------
 
     cartContainer.innerHTML = "";
 
@@ -196,6 +284,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    let total = 0;
+
+
     cart.forEach(function (item) {
 
       const row =
@@ -207,6 +298,10 @@ document.addEventListener("DOMContentLoaded", function () {
         "rental-cart-row";
 
 
+      // ---------------------------------
+      // ITEM NAME + PRICE
+      // ---------------------------------
+
       const name =
         document.createElement(
           "span"
@@ -215,8 +310,40 @@ document.addEventListener("DOMContentLoaded", function () {
       name.className =
         "rental-cart-name";
 
+
+      let itemText =
+        item.name;
+
+
+      if (period) {
+
+        const price =
+          getItemPrice(
+            item,
+            period
+          );
+
+        itemText +=
+          " — " +
+          getPeriodLabel(period);
+
+
+        if (price !== "") {
+
+          itemText +=
+            " — " +
+            formatPrice(price);
+
+          total +=
+            Number(price);
+
+        }
+
+      }
+
+
       name.textContent =
-        formatCartItem(item);
+        itemText;
 
 
       // ---------------------------------
@@ -247,7 +374,8 @@ document.addEventListener("DOMContentLoaded", function () {
               function (cartItem) {
 
                 return (
-                  cartItem.id !== item.id
+                  cartItem.id !==
+                  item.id
                 );
 
               }
@@ -258,7 +386,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
           updateCartCount();
 
-          displayCart();
+          displayCart(
+            getSelectedPeriod()
+          );
 
         }
       );
@@ -276,10 +406,118 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+    // ---------------------------------
+    // TOTAL
+    // ---------------------------------
+
+    if (period) {
+
+      const totalRow =
+        document.createElement(
+          "div"
+        );
+
+      totalRow.className =
+        "rental-cart-total";
+
+      totalRow.textContent =
+        "TOTAL — " +
+        formatPrice(total);
+
+      cartContainer.appendChild(
+        totalRow
+      );
+
+    }
+
   }
 
 
-  displayCart();
+  // ---------------------------------
+  // RENTAL PERIOD BUTTONS
+  // ---------------------------------
+
+  const periodButtons =
+    document.querySelectorAll(
+      ".rental-duration-option"
+    );
+
+
+  periodButtons.forEach(
+    function (button) {
+
+      button.addEventListener(
+        "click",
+        function () {
+
+          /*
+            Use the period directly from
+            the button because the separate
+            date script updates the hidden
+            field independently.
+          */
+
+          displayCart(
+            button.dataset.period
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  // ---------------------------------
+  // PREVENT SUBMIT WITHOUT PERIOD
+  // ---------------------------------
+
+  const rentalForm =
+    document.getElementById(
+      "rental-request-form"
+    );
+
+
+  if (rentalForm) {
+
+    rentalForm.addEventListener(
+      "submit",
+      function (event) {
+
+        const cart =
+          getCart();
+
+        const period =
+          getSelectedPeriod();
+
+
+        if (cart.length === 0) {
+
+          event.preventDefault();
+
+          alert(
+            "Please add equipment to your rental."
+          );
+
+          return;
+        }
+
+
+        if (!period) {
+
+          event.preventDefault();
+
+          alert(
+            "Please select a rental period."
+          );
+
+        }
+
+      }
+    );
+
+  }
 
 
   // ---------------------------------
@@ -309,6 +547,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   }
 
+
+  // ---------------------------------
+  // INITIAL LOAD
+  // ---------------------------------
+
+  displayCart();
 
   updateCartCount();
 

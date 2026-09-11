@@ -2623,3 +2623,51 @@ footer {
 .equipment-add-button {
   margin-top: 4px;
 }
+/* ---------------------------------
+   SYNTH DETAIL — RENTAL PRICES
+--------------------------------- */
+
+.rental-price-options {
+  margin:
+    4px
+    0
+    14px;
+
+  gap: 0;
+}
+
+
+.rental-price-option {
+  position: relative;
+
+  padding:
+    7px
+    12px
+    9px;
+}
+
+
+.rental-price-option + .rental-price-option {
+  border-left:
+    1px solid #ddd;
+}
+
+
+.rental-price-option span {
+  margin-bottom: 6px;
+
+  color: #777;
+
+  font-size: 7px;
+
+  letter-spacing: 0.5px;
+}
+
+
+.rental-price-option strong {
+  font-size: 13px;
+
+  line-height: 1;
+
+  letter-spacing: -0.2px;
+}

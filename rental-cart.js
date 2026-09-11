@@ -24,6 +24,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // ---------------------------------
+  // FORMAT CART ITEM
+  // ---------------------------------
+
+  function formatCartItem(item) {
+
+    let text = item.name;
+
+    if (item.period) {
+      text +=
+        " — " +
+        item.period.toUpperCase();
+    }
+
+    if (item.price) {
+      text +=
+        " — " +
+        Number(item.price).toLocaleString("da-DK") +
+        " DKK";
+    }
+
+    return text;
+  }
+
+
+  // ---------------------------------
   // ADD TO RENTAL BUTTONS
   // ---------------------------------
 
@@ -32,12 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
       ".add-rental-button"
     );
 
+
   buttons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
       /*
-        Individual synth pages require
+        Individual equipment pages require
         a rental period to be selected.
       */
 
@@ -55,12 +81,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
 
- const item = {
-  id: button.dataset.id,
-  name: button.dataset.name,
-  period: button.dataset.period || "",
-  price: button.dataset.price || ""
-};
+      const item = {
+        id: button.dataset.id,
+        name: button.dataset.name,
+        period: button.dataset.period || "",
+        price: button.dataset.price || ""
+      };
 
 
       let cart = getCart();
@@ -126,6 +152,10 @@ document.addEventListener("DOMContentLoaded", function () {
       getCart();
 
 
+    // ---------------------------------
+    // FORM EQUIPMENT FIELD
+    // ---------------------------------
+
     const equipmentField =
       document.getElementById(
         "cart-equipment"
@@ -137,34 +167,16 @@ document.addEventListener("DOMContentLoaded", function () {
       equipmentField.value =
         cart
           .map(function (item) {
-
-            let text =
-              item.name;
-
-            if (item.period) {
-
-              text +=
-                " — " +
-                item.period.toUpperCase();
-
-            }
-
-            if (item.price) {
-
-              text +=
-                " — " +
-                item.price +
-                " KR.";
-
-            }
-
-            return text;
-
+            return formatCartItem(item);
           })
           .join(", ");
 
     }
 
+
+    // ---------------------------------
+    // CART DISPLAY
+    // ---------------------------------
 
     cartContainer.innerHTML = "";
 
@@ -175,7 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
         '<p class="empty-cart">No equipment selected.</p>';
 
       return;
-
     }
 
 
@@ -198,33 +209,13 @@ document.addEventListener("DOMContentLoaded", function () {
       name.className =
         "rental-cart-name";
 
-
-      let itemText =
-        item.name;
-
-
-      if (item.period) {
-
-        itemText +=
-          " — " +
-          item.period.toUpperCase();
-
-      }
-
-
-      if (item.price) {
-
-        itemText +=
-          " — " +
-          item.price +
-          " KR.";
-
-      }
-
-
       name.textContent =
-        itemText;
+        formatCartItem(item);
 
+
+      // ---------------------------------
+      // REMOVE BUTTON
+      // ---------------------------------
 
       const removeButton =
         document.createElement(
@@ -250,8 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
               function (cartItem) {
 
                 return (
-                  cartItem.id !==
-                  item.id
+                  cartItem.id !== item.id
                 );
 
               }

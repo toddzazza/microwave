@@ -88,6 +88,49 @@
           data-fs-field
         >
 
+        <label>
+  Rental period
+</label>
+
+<div class="rental-duration-options">
+
+  <button
+    type="button"
+    class="rental-duration-option"
+    data-period="day"
+    data-days="1"
+  >
+    1 DAY
+  </button>
+
+  <button
+    type="button"
+    class="rental-duration-option"
+    data-period="weekend"
+    data-days="3"
+  >
+    3 DAYS
+  </button>
+
+  <button
+    type="button"
+    class="rental-duration-option"
+    data-period="week"
+    data-days="7"
+  >
+    7 DAYS
+  </button>
+
+</div>
+
+<input
+  type="hidden"
+  id="rental-period"
+  name="rental_period"
+  required
+  data-fs-field
+>
+
 
         <label for="start">
   Rental start
@@ -180,48 +223,41 @@
   <div class="fire-bottom"></div>
 
 
-  <script src="rental-cart.js"></script>
+ <script src="rental-cart.js"></script>
 
-  <script>
+
+<script>
   document.addEventListener("DOMContentLoaded", function () {
 
+    const periodButtons =
+      document.querySelectorAll(
+        ".rental-duration-option"
+      );
+
+    const periodInput =
+      document.getElementById(
+        "rental-period"
+      );
+
     const startInput =
-      document.getElementById("start");
+      document.getElementById(
+        "start"
+      );
 
     const endInput =
-      document.getElementById("end");
+      document.getElementById(
+        "end"
+      );
 
-    function getCart() {
-      return JSON.parse(
-        localStorage.getItem("microwaveRentalCart")
-      ) || [];
-    }
+    let selectedDays = 0;
 
-    function getRentalDays() {
-
-      const cart = getCart();
-
-      if (cart.length === 0) {
-        return 1;
-      }
-
-      const period =
-        cart[0].period;
-
-      if (period === "weekend") {
-        return 3;
-      }
-
-      if (period === "week") {
-        return 7;
-      }
-
-      return 1;
-    }
 
     function updateReturnDate() {
 
-      if (!startInput.value) {
+      if (
+        !startInput.value ||
+        !selectedDays
+      ) {
         endInput.value = "";
         return;
       }
@@ -231,12 +267,9 @@
           startInput.value + "T12:00:00"
         );
 
-      const rentalDays =
-        getRentalDays();
-
       startDate.setDate(
         startDate.getDate() +
-        rentalDays -
+        selectedDays -
         1
       );
 
@@ -254,8 +287,49 @@
         ).padStart(2, "0");
 
       endInput.value =
-        year + "-" + month + "-" + day;
+        year +
+        "-" +
+        month +
+        "-" +
+        day;
     }
+
+
+    periodButtons.forEach(function (button) {
+
+      button.addEventListener(
+        "click",
+        function () {
+
+          periodButtons.forEach(
+            function (otherButton) {
+
+              otherButton.classList.remove(
+                "selected"
+              );
+
+            }
+          );
+
+          button.classList.add(
+            "selected"
+          );
+
+          periodInput.value =
+            button.dataset.period;
+
+          selectedDays =
+            Number(
+              button.dataset.days
+            );
+
+          updateReturnDate();
+
+        }
+      );
+
+    });
+
 
     startInput.addEventListener(
       "change",
@@ -266,25 +340,34 @@
 </script>
 
 
-  <script>
-    window.formspree =
-      window.formspree ||
-      function () {
-        (formspree.q = formspree.q || []).push(arguments);
-      };
+<script>
+  window.formspree =
+    window.formspree ||
+    function () {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
 
-    formspree("initForm", {
-      formElement: "#rental-request-form",
-      formId: "mzebawbb",
+  formspree("initForm", {
+    formElement: "#rental-request-form",
+    formId: "mzebawbb",
 
-      onSuccess: function () {
-        localStorage.setItem("microwaveRentalCart", "[]");
-        window.location.href = "rental-sent.html";
-      }
-    });
-  </script>
+    onSuccess: function () {
+      localStorage.setItem(
+        "microwaveRentalCart",
+        "[]"
+      );
 
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+      window.location.href =
+        "rental-sent.html";
+    }
+  });
+</script>
+
+
+<script
+  src="https://unpkg.com/@formspree/ajax@1"
+  defer
+></script>
 
 </body>
 

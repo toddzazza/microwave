@@ -2287,3 +2287,340 @@ footer {
 
 .rental-includes {
   margin: 7px 0 10px;
+
+/* ---------------------------------
+   SYNTH DETAIL — CLEAN VERSION
+--------------------------------- */
+
+
+/* MORE SPACE BETWEEN PHOTO + INFO */
+
+.equipment-page {
+  gap: 28px;
+}
+
+.equipment-photo {
+  width: 420px;
+}
+
+
+/* ---------------------------------
+   CLEAN SYNTH CARD
+--------------------------------- */
+
+.synth-card {
+  width: 100%;
+
+  overflow: visible;
+
+  border: 0;
+
+  background: transparent;
+
+  box-shadow: none;
+}
+
+
+/* SMALLER / CLEANER HEADER */
+
+.synth-card-header {
+  padding: 0 0 9px 0;
+
+  color: #111;
+
+  border: 0;
+  border-bottom: 2px solid #1683b8;
+
+  background: transparent;
+
+  text-shadow: none;
+}
+
+
+.synth-card-type {
+  margin: 0;
+
+  color: #111;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 10px;
+  font-weight: bold;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.4px;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------
+   CLEAN TECHNICAL SPECS
+--------------------------------- */
+
+.synth-card-specs {
+  width: 100%;
+
+  margin:
+    14px
+    0
+    24px
+    0;
+
+  border: 0;
+
+  border-collapse: collapse;
+
+  background: transparent;
+
+  font-size: 10px;
+}
+
+
+.synth-card-specs td {
+  padding:
+    5px
+    0;
+
+  border: 0;
+  border-bottom: 1px solid #ddd;
+
+  background: transparent;
+}
+
+
+.synth-card-specs td:first-child {
+  width: 42%;
+
+  padding-right: 10px;
+
+  color: #666;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 8px;
+  font-weight: bold;
+
+  letter-spacing: 0.3px;
+
+  border-right: 0;
+
+  background: transparent;
+}
+
+
+.synth-card-specs td:last-child {
+  width: 58%;
+
+  text-align: right;
+
+  font-size: 10px;
+  font-weight: bold;
+
+  background: transparent;
+}
+
+
+/* ---------------------------------
+   CLEAN CARD SECTIONS
+--------------------------------- */
+
+.synth-card-section {
+  margin:
+    0
+    0
+    24px
+    0;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+}
+
+
+.synth-card-label {
+  margin:
+    0
+    0
+    10px
+    0;
+
+  padding:
+    0
+    0
+    5px
+    0;
+
+  color: #555;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 8px;
+  font-weight: bold;
+
+  letter-spacing: 0.7px;
+
+  border: 0;
+  border-bottom: 1px solid #bbb;
+
+  background: transparent;
+}
+
+
+/* ---------------------------------
+   STRONG SIDES
+--------------------------------- */
+
+.synth-strength {
+  grid-template-columns:
+    68px
+    1fr
+    16px;
+
+  gap: 7px;
+
+  padding:
+    4px
+    0;
+
+  border-bottom: 0;
+}
+
+
+.synth-strength-name {
+  color: #444;
+
+  font-size: 8px;
+}
+
+
+.synth-strength-meter {
+  gap: 2px;
+
+  height: 6px;
+}
+
+
+.synth-strength-block {
+  border: 1px solid #ccc;
+
+  background: #fff;
+}
+
+
+.synth-strength-block.filled {
+  border-color: #1683b8;
+
+  background: #1683b8;
+}
+
+
+/* ---------------------------------
+   SOUND REFERENCE
+--------------------------------- */
+
+#synth-reference {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+.synth-reference-part {
+  margin-top: 7px;
+
+  padding: 0;
+
+  color: #666;
+
+  font-size: 8px;
+
+  border: 0;
+
+  background: transparent;
+
+  text-shadow: none;
+}
+
+
+/* ---------------------------------
+   CLEAN RENTAL AREA
+--------------------------------- */
+
+.rental-action {
+  margin-top: 8px;
+
+  padding:
+    14px
+    0
+    0
+    0;
+
+  border: 0;
+  border-top: 1px solid #aaa;
+
+  background: transparent;
+}
+
+
+.rental-status {
+  margin-bottom: 12px;
+}
+
+
+/* PRICE BOXES */
+
+.rental-price-options {
+  gap: 8px;
+
+  margin:
+    0
+    0
+    10px
+    0;
+}
+
+
+.rental-price-option {
+  padding:
+    8px
+    3px;
+
+  border: 0;
+
+  background: transparent;
+}
+
+
+.rental-price-option span {
+  margin-bottom: 5px;
+
+  color: #777;
+
+  font-size: 7px;
+}
+
+
+.rental-price-option strong {
+  color: #111;
+
+  font-size: 11px;
+}
+
+
+/* ADD TO CART */
+
+.equipment-add-button {
+  margin-top: 4px;
+}

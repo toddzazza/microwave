@@ -35,7 +35,32 @@ body {
   border: 1px solid #777;
 }
 
+/* ---------------------------------
+   SYNTH DETAIL — OUTLINED SECTIONS
+--------------------------------- */
 
+/* TRUMP / TECHNICAL CARD */
+
+.synth-card {
+  padding: 14px 16px 16px;
+
+  border: 1px solid #aaa;
+
+  background: #fff;
+}
+
+
+/* RENTAL SECTION */
+
+.rental-action {
+  margin-top: 10px;
+
+  padding: 14px 16px 16px;
+
+  border: 1px solid #aaa;
+
+  background: #fff;
+}
 /* ---------------------------------------
    HEADER
    --------------------------------------- */

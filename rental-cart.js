@@ -29,23 +29,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function formatCartItem(item) {
 
-    let text = item.name;
+  let text = item.name;
 
-    if (item.period) {
-      text +=
-        " — " +
-        item.period.toUpperCase();
-    }
+  const periodLabels = {
+    day: "1 DAY",
+    weekend: "3 DAYS",
+    week: "7 DAYS"
+  };
 
-    if (item.price) {
-      text +=
-        " — " +
-        Number(item.price).toLocaleString("da-DK") +
-        " DKK";
-    }
-
-    return text;
+  if (item.period) {
+    text +=
+      " — " +
+      (periodLabels[item.period] || item.period.toUpperCase());
   }
+
+  if (item.price) {
+    text +=
+      " — " +
+      Number(item.price).toLocaleString("da-DK") +
+      " DKK";
+  }
+
+  return text;
+}
 
 
   // ---------------------------------

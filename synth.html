@@ -1093,11 +1093,19 @@ const addButton =
 
 
       addButton.dataset.id =
-        synthID;
+  synthID;
 
+addButton.dataset.name =
+  synth.name;
 
-      addButton.dataset.name =
-        synth.name;
+addButton.dataset.priceDay =
+  synth.prices.day;
+
+addButton.dataset.price3Days =
+  synth.prices.weekend;
+
+addButton.dataset.price7Days =
+  synth.prices.week;
 
 
 

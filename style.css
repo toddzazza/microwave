@@ -2671,3 +2671,10 @@ footer {
 
   letter-spacing: -0.2px;
 }
+/* ---------------------------------
+   SYNTH DETAIL — VERTICAL BALANCE
+--------------------------------- */
+
+.equipment-info {
+  align-self: center;
+}

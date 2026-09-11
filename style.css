@@ -2101,70 +2101,186 @@ footer {
   text-transform: uppercase;
 }
 /* ---------------------------------
-   RENTAL PRICE SELECTOR
+   RENTAL PRICE DISPLAY
+   SYNTH DETAIL PAGE
 --------------------------------- */
 
 .rental-price-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
+
   width: 100%;
   margin: 10px 0;
 }
 
+
 .rental-price-option {
   min-width: 0;
-  padding: 8px 4px 7px;
-  border: 1px solid #999;
+
+  padding:
+    8px
+    4px
+    7px;
+
+  color: #111;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  text-align: center;
+
+  border:
+    1px solid #999;
+
   background:
     linear-gradient(
       to bottom,
       #f8f8f8,
       #d7d7d7
     );
-  color: #111;
-  font-family:
-    "Courier New",
-    Courier,
-    monospace;
-  text-align: center;
-  cursor: pointer;
 }
+
 
 .rental-price-option span {
   display: block;
+
   margin-bottom: 4px;
+
+  color: #555;
+
   font-size: 8px;
   font-weight: bold;
 }
 
+
 .rental-price-option strong {
   display: block;
+
+  color: #111;
+
   font-size: 11px;
 }
+/* ---------------------------------
+   RENTAL CART — DURATION SELECTOR
+--------------------------------- */
 
-.rental-price-option:hover {
-  border-color: #126c99;
+.rental-duration-options {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 5px;
+
+  width: 100%;
 }
 
-.rental-price-option.selected {
-  border-color: #126c99;
-  background:
-    linear-gradient(
-      to bottom,
-      #55b5e5,
-      #147ead
-    );
-  color: white;
-}
 
-.rental-includes {
-  margin: 7px 0 10px;
+.rental-duration-option {
+  width: 100%;
+
+  padding:
+    9px
+    5px;
+
+  margin: 0;
+
+  color: #111;
+
   font-family:
     "Courier New",
     Courier,
     monospace;
-  font-size: 9px;
+
+  font-size: 10px;
   font-weight: bold;
-  text-transform: uppercase;
+
+  text-align: center;
+
+  border:
+    1px solid #888;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #f8f8f8 0%,
+      #e5e5e5 45%,
+      #c7c7c7 100%
+    );
+
+  cursor: pointer;
+}
+
+
+.rental-duration-option:hover {
+  border-color:
+    #126c99;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      #e7f3ff 35%,
+      #8abce8 100%
+    );
+}
+
+
+.rental-duration-option.selected {
+  color: #fff;
+
+  border-color:
+    #075783;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #55b5e5 0%,
+      #2d96ce 45%,
+      #147ead 55%,
+      #268fc2 100%
+    );
+
+  text-shadow:
+    0 1px 0 #07567e;
+}
+
+
+/* ---------------------------------
+   RENTAL CART — TOTAL
+--------------------------------- */
+
+.rental-cart-total {
+  padding:
+    9px
+    8px;
+
+  text-align: right;
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 11px;
+  font-weight: bold;
+
+  border-left:
+    1px solid #888;
+
+  border-right:
+    1px solid #888;
+
+  border-bottom:
+    1px solid #888;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #f8f8f8,
+      #d3d3d3
+    );
 }

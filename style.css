@@ -2704,3 +2704,9 @@ footer {
 
   background: #fff;
 }
+/* TEMP — FONT TEST */
+
+.synth-card,
+.synth-card * {
+  font-family: "FONT NAME HERE", sans-serif !important;
+}

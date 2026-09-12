@@ -110,12 +110,12 @@ header {
 }
 
 .tagline {
-  margin-top: 2px;
-
-  font-family: "Courier New", Courier, monospace;
+  font-family: "KozGoPro", Arial, sans-serif;
+  font-weight: 500;
   font-size: 10px;
-  letter-spacing: 0.5px;
-
+  letter-spacing: 1.4px;
+  line-height: 1.2;
+  margin-top: 5px;
   color: #444;
 }
 

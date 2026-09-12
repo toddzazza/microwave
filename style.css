@@ -2753,7 +2753,7 @@ footer {
 }
 .main-logo {
   display: block;
-  width: 100%;
-  max-width: 900px;
+  width: 520px;
+  max-width: 75%;
   height: auto;
 }

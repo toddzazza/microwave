@@ -2751,3 +2751,9 @@ footer {
 .synth-card * {
   font-family: "FONT NAME HERE", sans-serif !important;
 }
+.main-logo {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
